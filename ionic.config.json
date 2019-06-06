@@ -1,0 +1,7 @@
+{
+  "name": "cointracker",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

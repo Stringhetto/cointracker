@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        <ion-icon ion-button icon-only (click)="showSearch()"name="arrow-round-back"></ion-icon>
+      
+      Noticias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+ <ion-content>
+   
+    <br>
+   
+    <button id="News1"ion-button icon-only (click)="getNews()">
+        &nbsp; Notícias Brasil &nbsp;
+          </button>
+          <button id="News1" ion-button icon-only (click)="getNews2()">
+              &nbsp; News US &nbsp;
+                </button>
+              
+          <br>
+    <ion-card *ngFor="let article of post?.articles" (click)="opeWebPage(article)" id="teste">
+      <img [src]="article.urlToImage"/> 
+  
+      <ion-card-content id="teste2">
+        <ion-card-title id="teste3">{{article.title}}</ion-card-title>
+        <br>
+        <p>{{article.description}}</p>
+      </ion-card-content>
+    </ion-card>
+  
+  
+    
+  </ion-content>

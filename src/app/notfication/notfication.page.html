@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        <ion-icon ion-button icon-only (click)="showSearch()"name="arrow-round-back"></ion-icon>
+      Notfication</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <h2 id="Titulo">Criar Notificações</h2>
+
+  <ion-list>
+    <ion-item *ngFor="let n of schedule">
+      <ion-label textwrap>
+        {{n.id}}-{{n.title}}
+        <p>Trigger: {{n.trigger |json}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list *ngIf="coins"  >
+    <ion-item-sliding *ngFor="let coin of objectKeys(coins); let i= index" (ionDrag)="swiped(i)">
+      <ion-item (click)="coinDetails(coin,i)"no-lines  >
+          <img id="moedas"src="assets/icon/iconsmoedas/{{coin}}.png" height="25" width="25">&nbsp;
+        {{coin}}
+        <ion-note color="black"id="teste">
+         
+         
+         
+        </ion-note>
+      
+      </ion-item>
+      <ion-button id="btn-notification" (click)="notificationagendada(coin,coins)">Agendar</ion-button>
+      <ion-button id="btn-notification" (click)="cancelarscheduleNotification(coin,coins)">Cancelar</ion-button>
+      <br>
+      <ion-button id="btn-notification" (click)="notificationDiaria(coin,coins)"> Diaria</ion-button>
+      <ion-button id="btn-notification" (click)="cancelarscheduleNotification(coin,coins)">Cancelar</ion-button>
+      <br>
+      <ion-button id="btn-notification" (click)="notificationPorHora(coin,coins)"> Por Hora</ion-button>
+      <ion-button id="btn-notification" (click)="cancelarscheduleNotification(coin,coins)">Cancelar</ion-button>
+      <br>
+      <ion-button id="btn-notification" (click)="notificationValor(coin,coins)"> Por Valor</ion-button>
+      <ion-button id="btn-notification" (click)="cancelarscheduleNotification(coin,coins)">Cancelar</ion-button>
+     
+  </ion-item-sliding>
+  
+  </ion-list>
+
+</ion-content>
